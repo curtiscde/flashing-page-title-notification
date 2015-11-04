@@ -1,18 +1,27 @@
-﻿var PageTitleNotification = {
-    Vars: {
-        OriginalTitle: document.title,
-        Interval: null
-    },
-    On: function (notification, intervalSpeed) {
-        var _this = this;
-        _this.Vars.Interval = setInterval(function () {
-            document.title = (_this.Vars.OriginalTitle == document.title)
-                                ? notification
-                                : _this.Vars.OriginalTitle;
+﻿var pageTitleNotification = (function (window, document) {
+
+    this.config = {
+        currentTitle: null,
+        interval: null
+    };
+
+    this.on = function (notificationText, intervalSpeed) {
+        config.currentTitle = document.title;
+        config.interval = window.setInterval(function () {
+            document.title = (config.currentTitle == document.title)
+                                ? notificationText
+                                : config.currentTitle;
         }, (intervalSpeed) ? intervalSpeed : 1000);
-    },
-    Off: function () {
-        clearInterval(this.Vars.Interval);
-        document.title = this.Vars.OriginalTitle;
-    }
-};
+    };
+
+    this.off = function () {
+        window.clearInterval(config.interval);
+        document.title = config.currentTitle;
+    };
+
+    return {
+        on: on,
+        off: off
+    };
+
+})(window, document);
