@@ -1,11 +1,11 @@
 ﻿var pageTitleNotification = (function (window, document) {
 
-    this.config = {
+    var config = {
         currentTitle: null,
         interval: null
     };
 
-    this.on = function (notificationText, intervalSpeed) {
+    var on = function (notificationText, intervalSpeed) {
         if (!config.interval) {
             config.currentTitle = document.title;
             config.interval = window.setInterval(function() {
@@ -16,7 +16,7 @@
         }
     };
 
-    this.off = function () {
+    var off = function () {
         window.clearInterval(config.interval);
         config.interval = null;
         document.title = config.currentTitle;
