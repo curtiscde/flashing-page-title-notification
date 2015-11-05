@@ -6,16 +6,19 @@
     };
 
     this.on = function (notificationText, intervalSpeed) {
-        config.currentTitle = document.title;
-        config.interval = window.setInterval(function () {
-            document.title = (config.currentTitle == document.title)
-                                ? notificationText
-                                : config.currentTitle;
-        }, (intervalSpeed) ? intervalSpeed : 1000);
+        if (!config.interval) {
+            config.currentTitle = document.title;
+            config.interval = window.setInterval(function() {
+                document.title = (config.currentTitle === document.title)
+                    ? notificationText
+                    : config.currentTitle;
+            }, (intervalSpeed) ? intervalSpeed : 1000);
+        }
     };
 
     this.off = function () {
         window.clearInterval(config.interval);
+        config.interval = null;
         document.title = config.currentTitle;
     };
 
