@@ -7,7 +7,13 @@ A javascript plugin which allows easy use of creating a flashing page title for 
 
   [1]: http://i.stack.imgur.com/e2O3j.gif
 
+  -----------------
+
+**Related Blog Article**
+
 http://curtistimson.co.uk/js/create-a-flashing-tab-notification-page-title/
+
+-----------------
 
 **Example**
 
@@ -15,6 +21,7 @@ http://curtistimson.co.uk/js/create-a-flashing-tab-notification-page-title/
 
 `pageTitleNotification.off`
 
+--------------------
 
 **Install**
 
