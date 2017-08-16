@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/CurtTimson/Flashing-Page-Title-Notification/issues"
   },
-  "homepage": "https://github.com/CurtTimson/Flashing-Page-Title-Notification#readme"
+  "homepage": "https://github.com/CurtTimson/Flashing-Page-Title-Notification#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
