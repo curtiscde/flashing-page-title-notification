@@ -11,7 +11,7 @@ A javascript plugin which allows easy use of creating a flashing page title for 
 
 **Related Blog Article**
 
-http://curtistimson.co.uk/js/create-a-flashing-tab-notification-page-title/
+http://curtistimson.co.uk/post/js/create-a-flashing-tab-notification-page-title/
 
 -----------------
 
