@@ -1,3 +1,6 @@
+var gulp = require("gulp");
+var minify = require('gulp-minify');
+
 gulp.task('build-js', function(){
   return gulp.src('./src/**/*.js')
   .pipe(minify({
