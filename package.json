@@ -1,6 +1,6 @@
 {
   "name": "flashing-page-title-notification",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A javascript plugin which allows easy use of creating a flashing page title for notification purposes.",
   "main": "PageTitleNotification.js",
   "scripts": {
@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/CurtTimson/Flashing-Page-Title-Notification/issues"
   },
-  "homepage": "https://github.com/CurtTimson/Flashing-Page-Title-Notification#readme"
+  "homepage": "https://github.com/CurtTimson/Flashing-Page-Title-Notification#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-minify": "^1.0.0",
+    "require-dir": "^0.3.2"
+  }
 }
