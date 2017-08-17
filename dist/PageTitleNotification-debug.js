@@ -1,30 +1,34 @@
-var pageTitleNotification = (function (window, document) {
+(function(window, document){
 
-    var config = {
-        currentTitle: null,
-        interval: null
-    };
+  window.pageTitleNotification = (function () {
 
-    var on = function (notificationText, intervalSpeed) {
-        if (!config.interval) {
-            config.currentTitle = document.title;
-            config.interval = window.setInterval(function() {
-                document.title = (config.currentTitle === document.title)
-                    ? notificationText
-                    : config.currentTitle;
-            }, (intervalSpeed) ? intervalSpeed : 1000);
-        }
-    };
+      var config = {
+          currentTitle: null,
+          interval: null
+      };
 
-    var off = function () {
-        window.clearInterval(config.interval);
-        config.interval = null;
-        document.title = config.currentTitle;
-    };
+      var on = function (notificationText, intervalSpeed) {
+          if (!config.interval) {
+              config.currentTitle = document.title;
+              config.interval = window.setInterval(function() {
+                  document.title = (config.currentTitle === document.title)
+                      ? notificationText
+                      : config.currentTitle;
+              }, (intervalSpeed) ? intervalSpeed : 1000);
+          }
+      };
 
-    return {
-        on: on,
-        off: off
-    };
+      var off = function () {
+          window.clearInterval(config.interval);
+          config.interval = null;
+          document.title = config.currentTitle;
+      };
 
-})(window, document);
+      return {
+          on: on,
+          off: off
+      };
+
+  })();
+
+}(window, document));
