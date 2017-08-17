@@ -9,20 +9,24 @@ A javascript plugin which allows easy use of creating a flashing page title for 
 
   -----------------
 
-**Related Blog Article**
+## Related Blog Article
 
 http://curtistimson.co.uk/post/js/create-a-flashing-tab-notification-page-title/
 
 -----------------
 
-**Example**
+## Example
 
-`pageTitleNotification.on("New Message!", 1000);`
+```
+pageTitleNotification.on("New Message!", 1000);
 
-`pageTitleNotification.off`
+pageTitleNotification.off
+```
 
 --------------------
 
-**Install**
+## Install
 
-`npm install flashing-page-title-notification`
+```
+npm install flashing-page-title-notification
+```
