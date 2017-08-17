@@ -8,9 +8,14 @@ A javascript plugin which allows easy use of creating a flashing page title for 
   [1]: http://i.stack.imgur.com/e2O3j.gif
 
 
-## Related Blog Article
+## Blog Article
 
 http://curtistimson.co.uk/post/js/create-a-flashing-tab-notification-page-title/
+
+
+## Demo
+
+https://curttimson.github.io/Flashing-Page-Title-Notification/Demo/Index.html
 
 
 ## Example
