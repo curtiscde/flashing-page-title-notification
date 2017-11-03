@@ -23,7 +23,7 @@ https://curttimson.github.io/Flashing-Page-Title-Notification/Demo/Index.html
 ```
 pageTitleNotification.on("New Message!", 1000);
 
-pageTitleNotification.off
+pageTitleNotification.off()
 ```
 
 
