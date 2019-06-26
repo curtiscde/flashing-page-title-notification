@@ -5,5 +5,6 @@
 ### Breaking Changes
 
 ### Minor Changes
+ - Update demo location to Netlify
 
 ### Patches

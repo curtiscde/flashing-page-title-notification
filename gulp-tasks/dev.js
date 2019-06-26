@@ -11,3 +11,10 @@ gulp.task('build-js', function(){
   }))
   .pipe(gulp.dest('./dist'))
 });
+
+gulp.task('build-demo', function(){
+  return gulp.src('./Demo/**/*')
+    .pipe(gulp.dest('./dist/demo'));
+});
+
+gulp.task('build', ['build-js', 'build-demo']);
