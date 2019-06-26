@@ -1,4 +1,4 @@
-var btnOn = document.getElementById('btn-on');
+﻿var btnOn = document.getElementById('btn-on');
 var btnOff = document.getElementById('btn-off');
 
 btnOn.addEventListener('click', function(){

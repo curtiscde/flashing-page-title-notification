@@ -1,10 +1,10 @@
 {
   "name": "flashing-page-title-notification",
-  "version": "2.2.0-dev.2",
+  "version": "2.2.0-dev.3",
   "description": "A javascript plugin which allows easy use of creating a flashing page title for notification purposes.",
   "main": "PageTitleNotification.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,8 @@
     "gulp": "^4.0.2",
     "gulp-minify": "^3.1.0",
     "gulp-rename": "^1.4.0",
-    "require-dir": "^0.3.2"
+    "require-dir": "^0.3.2",
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.5"
   }
 }
