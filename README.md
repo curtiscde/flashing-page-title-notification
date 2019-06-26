@@ -5,18 +5,15 @@ A javascript plugin which allows easy use of creating a flashing page title for 
 [![enter image description here][1]][1]
 
 
-  [1]: http://i.stack.imgur.com/e2O3j.gif
+  [1]: https://i.stack.imgur.com/e2O3j.gif
 
+## Demo
+
+https://flashing-page-title-notification.netlify.com/demo
 
 ## Blog Article
 
 http://curtistimson.co.uk/post/js/create-a-flashing-tab-notification-page-title/
-
-
-## Demo
-
-https://curttimson.github.io/Flashing-Page-Title-Notification/Demo/Index.html
-
 
 ## Example
 
