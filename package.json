@@ -18,7 +18,7 @@
   "homepage": "https://github.com/CurtTimson/Flashing-Page-Title-Notification#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-minify": "^1.0.0",
+    "gulp-minify": "^3.1.0",
     "require-dir": "^0.3.2"
   }
 }
