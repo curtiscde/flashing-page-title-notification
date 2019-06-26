@@ -1,10 +1,15 @@
 # Change Log
 
-## `2.1.0-dev`
+## `2.2.0-dev`
 
 ### Breaking Changes
 
 ### Minor Changes
- - Update demo location to Netlify
 
 ### Patches
+
+---
+## `2.2.0`
+
+### Minor Changes
+ - Update demo location to Netlify
