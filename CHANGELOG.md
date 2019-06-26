@@ -7,6 +7,7 @@
 ### Minor Changes
 
 ### Patches
+ - Resolve dependency security vulnerabilities
 
 ---
 ## `2.2.0`
