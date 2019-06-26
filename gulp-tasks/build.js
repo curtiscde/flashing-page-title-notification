@@ -13,8 +13,8 @@ gulp.task('build-js', function(){
 });
 
 gulp.task('build-demo', function(){
-  return gulp.src('./Demo/**/*')
+  return gulp.src('./src/demo/**')
     .pipe(gulp.dest('./dist/demo'));
 });
 
-gulp.task('build', ['build-js', 'build-demo']);
+gulp.task('build', gulp.series(['build-js', 'build-demo']));
