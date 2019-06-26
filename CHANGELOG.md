@@ -5,6 +5,7 @@
 ### Breaking Changes
 
 ### Minor Changes
+ - Remove jQuery dependency from demo
 
 ### Patches
  - Resolve dependency security vulnerabilities
