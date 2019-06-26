@@ -1,5 +1,7 @@
 # Flashing Page Title Notification JS
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ea404321-93fd-4514-bba4-8a4965a7244d/deploy-status)](https://app.netlify.com/sites/flashing-page-title-notification/deploys)
+
 A javascript plugin which allows easy use of creating a flashing page title for notification purposes.
 
 [![enter image description here][1]][1]
