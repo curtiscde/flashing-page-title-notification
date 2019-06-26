@@ -6,6 +6,7 @@
 
 ### Minor Changes
  - Remove jQuery dependency from demo
+ - Integrate Webpack
 
 ### Patches
  - Resolve dependency security vulnerabilities

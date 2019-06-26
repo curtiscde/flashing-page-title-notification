@@ -34,10 +34,10 @@ npm install flashing-page-title-notification
 
 ## Develop
 
-Manual build to `/dist`:
+Build to `/dist`:
 
 ```
-gulp build
+npm run build
 ```
 
 Changes can be tested at `/dist/demo`
