@@ -1,15 +1,17 @@
 var gulp = require("gulp");
 var minify = require('gulp-minify');
+var rename = require('gulp-rename');
 
 gulp.task('build-js', function(){
-  return gulp.src('./src/**/*.js')
+  return gulp.src('./src/index.js')
+  .pipe(rename('PageTitleNotification.js'))
   .pipe(minify({
-      ext:{
-          src:'-debug.js',
-          min:'.min.js'
-      }
+    ext:{
+      src:'-debug.js',
+      min:'.min.js'
+    }
   }))
-  .pipe(gulp.dest('./dist'))
+  .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('build-demo', function(){
