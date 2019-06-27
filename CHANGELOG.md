@@ -1,15 +1,5 @@
 # Change Log
-
----
-## `2.3.0-dev`
-
-### Breaking Changes
-
-### Minor Changes
-
-### Patches
  
----
 ## `2.3.0`
 
 ### Minor Changes
