@@ -1,6 +1,6 @@
 {
   "name": "flashing-page-title-notification",
-  "version": "2.2.0-dev.2",
+  "version": "2.3.0-dev.0",
   "description": "A javascript plugin which allows easy use of creating a flashing page title for notification purposes.",
   "main": "PageTitleNotification.js",
   "scripts": {
