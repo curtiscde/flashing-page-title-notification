@@ -15,7 +15,7 @@ https://flashing-page-title-notification.netlify.com/demo
 
 ## Blog Article
 
-http://curtistimson.co.uk/post/js/create-a-flashing-tab-notification-page-title/
+https://www.curtiscode.dev/post/js/create-a-flashing-tab-notification-page-title
 
 ## Example
 
