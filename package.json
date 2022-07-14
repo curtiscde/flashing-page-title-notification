@@ -3,7 +3,8 @@
   "version": "2.4.0",
   "description": "A javascript plugin which allows easy use of creating a flashing page title for notification purposes.",
   "scripts": {
-    "build": "tsc "
+    "build": "tsc",
+    "build-demo": "./bin/buildDemo.sh"
   },
   "repository": {
     "type": "git",
