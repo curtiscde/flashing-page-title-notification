@@ -21,9 +21,11 @@ const initPageTitleNotification = () => {
   };
 
   const off = function () {
+    if (config.interval) {
       window.clearInterval(config.interval!);
       config.interval = null;
       document.title = config.currentTitle!;
+    }
   };
 
   return {
