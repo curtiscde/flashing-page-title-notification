@@ -1,2 +1,3 @@
 [build]
   publish = "Demo"
+  command = "npm run build-demo"
