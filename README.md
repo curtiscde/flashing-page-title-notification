@@ -40,4 +40,10 @@ Manual build to `/dist`:
 npm run build
 ```
 
-Changes can be tested at `/demo`
+
+
+Changes can be tested at `/demo-publish` by running:
+
+```
+npm run build-demo
+```

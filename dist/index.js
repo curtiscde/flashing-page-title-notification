@@ -15,9 +15,11 @@ var initPageTitleNotification = function () {
         }
     };
     var off = function () {
-        window.clearInterval(config.interval);
-        config.interval = null;
-        document.title = config.currentTitle;
+        if (config.interval) {
+            window.clearInterval(config.interval);
+            config.interval = null;
+            document.title = config.currentTitle;
+        }
     };
     return {
         on: on,
