@@ -2,7 +2,7 @@
 var initPageTitleNotification = function () {
     var config = {
         currentTitle: null,
-        interval: null
+        interval: null,
     };
     var on = function (notificationText, intervalSpeed) {
         if (!config.interval) {
@@ -11,7 +11,7 @@ var initPageTitleNotification = function () {
                 document.title = (config.currentTitle === document.title)
                     ? notificationText
                     : config.currentTitle;
-            }, (intervalSpeed) ? intervalSpeed : 1000);
+            }, (intervalSpeed) || 1000);
         }
     };
     var off = function () {
@@ -23,10 +23,10 @@ var initPageTitleNotification = function () {
     };
     return {
         on: on,
-        off: off
+        off: off,
     };
 };
 var init = function () {
-    window['pageTitleNotification'] = initPageTitleNotification();
+    window.pageTitleNotification = initPageTitleNotification();
 };
 init();

@@ -6,21 +6,21 @@ interface Config {
 const initPageTitleNotification = () => {
   const config: Config = {
     currentTitle: null,
-    interval: null
+    interval: null,
   };
 
-  const on = function (notificationText: string, intervalSpeed: number) {
-      if (!config.interval) {
-          config.currentTitle = document.title;
-          config.interval = window.setInterval(function() {
-              document.title = (config.currentTitle === document.title)
-                  ? notificationText
-                  : config.currentTitle!;
-          }, (intervalSpeed) ? intervalSpeed : 1000);
-      }
+  const on = (notificationText: string, intervalSpeed: number) => {
+    if (!config.interval) {
+      config.currentTitle = document.title;
+      config.interval = window.setInterval(() => {
+        document.title = (config.currentTitle === document.title)
+          ? notificationText
+          : config.currentTitle!;
+      }, (intervalSpeed) || 1000);
+    }
   };
 
-  const off = function () {
+  const off = () => {
     if (config.interval) {
       window.clearInterval(config.interval!);
       config.interval = null;
@@ -29,14 +29,14 @@ const initPageTitleNotification = () => {
   };
 
   return {
-      on: on,
-      off: off
+    on,
+    off,
   };
 };
 
 const init = () => {
   // @ts-ignore
-  window['pageTitleNotification'] = initPageTitleNotification();
-}
+  window.pageTitleNotification = initPageTitleNotification();
+};
 
 init();
