@@ -11,7 +11,7 @@ A javascript plugin which allows easy use of creating a flashing page title for 
 
 ## Demo
 
-https://flashing-page-title-notification.netlify.com/demo
+https://flashing-page-title-notification.netlify.com
 
 ## Blog Article
 
