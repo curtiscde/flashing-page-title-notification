@@ -21,13 +21,15 @@ export const createPageTitleNotification = (): PageTitleNotification => {
         document.title = (config.currentTitle === document.title)
           ? notificationText
           : config.currentTitle!;
-      }, (intervalSpeed) || 1000);
+      // `||` rather than `??` so that 0 also falls back to the default
+      // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+      }, intervalSpeed || 1000);
     }
   };
 
   const off = () => {
     if (config.interval) {
-      window.clearInterval(config.interval!);
+      window.clearInterval(config.interval);
       config.interval = null;
       document.title = config.currentTitle!;
     }
