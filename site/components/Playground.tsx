@@ -1,6 +1,6 @@
 'use client';
 
-import { createPageTitleNotification } from 'flashing-page-title';
+import { createFlashingPageTitle } from 'flashing-page-title';
 import { Play, Square } from 'lucide-react';
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 
@@ -13,14 +13,14 @@ const subscribeToTitle = (onChange: () => void) => {
 const useDocumentTitle = () => useSyncExternalStore(subscribeToTitle, () => document.title, () => '');
 
 export function Playground() {
-  const notification = useRef<ReturnType<typeof createPageTitleNotification>>(null);
+  const notification = useRef<ReturnType<typeof createFlashingPageTitle>>(null);
   const [text, setText] = useState('New Message!');
   const [interval, setIntervalSpeed] = useState(1000);
   const [flashing, setFlashing] = useState(false);
   const title = useDocumentTitle();
 
   useEffect(() => {
-    notification.current = createPageTitleNotification();
+    notification.current = createFlashingPageTitle();
     return () => notification.current?.off();
   }, []);
 
@@ -32,8 +32,8 @@ export function Playground() {
   }, [flashing, text, interval]);
 
   const snippet = flashing
-    ? `pageTitleNotification.on('${text}', ${interval});`
-    : 'pageTitleNotification.off();';
+    ? `flashingPageTitle.on('${text}', ${interval});`
+    : 'flashingPageTitle.off();';
 
   return (
     <div className="card border border-base-300 bg-base-100 shadow-sm">

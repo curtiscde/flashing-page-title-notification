@@ -12,34 +12,34 @@ export const usageSnippets: Snippet[] = [
   {
     label: 'Bundler',
     lang: 'ts',
-    code: `import { pageTitleNotification } from 'flashing-page-title';
+    code: `import { flashingPageTitle } from 'flashing-page-title';
 
 // Flash "New Message!" every second
-pageTitleNotification.on('New Message!', 1000);
+flashingPageTitle.on('New Message!', 1000);
 
 // Stop flashing and restore the original title
-pageTitleNotification.off();`,
+flashingPageTitle.off();`,
   },
   {
     label: 'Script tag',
     lang: 'html',
     code: `<script type="module">
-  import { pageTitleNotification } from 'https://esm.sh/flashing-page-title@3';
+  import { flashingPageTitle } from 'https://esm.sh/flashing-page-title@3';
 
-  pageTitleNotification.on('New Message!');
+  flashingPageTitle.on('New Message!');
 </script>`,
   },
   {
     label: 'React',
     lang: 'tsx',
     code: `import { useEffect } from 'react';
-import { createPageTitleNotification } from 'flashing-page-title';
+import { createFlashingPageTitle } from 'flashing-page-title';
 
 export function useFlashingTitle(text: string | null, interval = 1000) {
   useEffect(() => {
     if (!text) return;
 
-    const notification = createPageTitleNotification();
+    const notification = createFlashingPageTitle();
     notification.on(text, interval);
 
     return () => notification.off();
@@ -51,18 +51,18 @@ export function useFlashingTitle(text: string | null, interval = 1000) {
   {
     label: 'Stop on return',
     lang: 'ts',
-    code: `import { pageTitleNotification } from 'flashing-page-title';
+    code: `import { flashingPageTitle } from 'flashing-page-title';
 
 // Only flash while the user is looking at another tab
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'visible') {
-    pageTitleNotification.off();
+    flashingPageTitle.off();
   }
 });
 
 socket.on('message', () => {
   if (document.visibilityState === 'hidden') {
-    pageTitleNotification.on('New Message!');
+    flashingPageTitle.on('New Message!');
   }
 });`,
   },
@@ -75,6 +75,6 @@ export const migrationSnippet: Snippet = {
 window.pageTitleNotification.on('New Message!');
 
 // 3.x: import it
-import { pageTitleNotification } from 'flashing-page-title';
-pageTitleNotification.on('New Message!');`,
+import { flashingPageTitle } from 'flashing-page-title';
+flashingPageTitle.on('New Message!');`,
 };

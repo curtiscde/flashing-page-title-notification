@@ -1,9 +1,10 @@
 import {
   afterEach, beforeEach, describe, expect, it, vi,
 } from 'vitest';
-import { createPageTitleNotification } from './index';
+import * as lib from './index';
+import { createFlashingPageTitle } from './index';
 
-describe('pageTitleNotification', () => {
+describe('flashingPageTitle', () => {
   beforeEach(() => {
     vi.useFakeTimers();
     document.title = 'Original';
@@ -14,7 +15,7 @@ describe('pageTitleNotification', () => {
   });
 
   it('alternates between the notification and the original title', () => {
-    const notification = createPageTitleNotification();
+    const notification = createFlashingPageTitle();
     notification.on('New!', 500);
 
     expect(document.title).toBe('Original');
@@ -29,7 +30,7 @@ describe('pageTitleNotification', () => {
   });
 
   it.each([undefined, 0])('defaults to a 1000ms interval when speed is %s', (speed?: number) => {
-    const notification = createPageTitleNotification();
+    const notification = createFlashingPageTitle();
     notification.on('New!', speed);
 
     vi.advanceTimersByTime(999);
@@ -41,7 +42,7 @@ describe('pageTitleNotification', () => {
   });
 
   it('off() stops flashing and restores the original title', () => {
-    const notification = createPageTitleNotification();
+    const notification = createFlashingPageTitle();
     notification.on('New!', 500);
     vi.advanceTimersByTime(500);
 
@@ -53,7 +54,7 @@ describe('pageTitleNotification', () => {
   });
 
   it('off() does nothing when not flashing', () => {
-    const notification = createPageTitleNotification();
+    const notification = createFlashingPageTitle();
     document.title = 'Changed by the page';
 
     notification.off();
@@ -62,7 +63,7 @@ describe('pageTitleNotification', () => {
   });
 
   it('ignores on() while already flashing', () => {
-    const notification = createPageTitleNotification();
+    const notification = createFlashingPageTitle();
     notification.on('First', 500);
     notification.on('Second', 100);
 
@@ -84,6 +85,7 @@ describe('importing the module', () => {
   it('does not assign a window global', async () => {
     await import('./index');
 
+    expect('flashingPageTitle' in window).toBe(false);
     expect('pageTitleNotification' in window).toBe(false);
   });
 
@@ -94,5 +96,12 @@ describe('importing the module', () => {
     vi.advanceTimersByTime(5000);
     expect(document.title).toBe('Original');
     vi.useRealTimers();
+  });
+});
+
+describe('deprecated 3.1 names', () => {
+  it('still export the same implementations', () => {
+    expect(lib.pageTitleNotification).toBe(lib.flashingPageTitle);
+    expect(lib.createPageTitleNotification).toBe(lib.createFlashingPageTitle);
   });
 });

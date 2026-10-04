@@ -21,32 +21,42 @@ npm install flashing-page-title
 ## Example
 
 ```ts
-import { pageTitleNotification } from "flashing-page-title";
+import { flashingPageTitle } from "flashing-page-title";
 
-pageTitleNotification.on("New Message!", 1000);
+flashingPageTitle.on("New Message!", 1000);
 
-pageTitleNotification.off();
+flashingPageTitle.off();
 ```
 
 `on(notificationText, intervalSpeed?)` flashes the page title between `notificationText` and the original title every `intervalSpeed` milliseconds (default `1000`). Calling `on()` while already flashing does nothing. `off()` stops flashing and restores the original title.
 
-`createPageTitleNotification()` returns a fresh `{ on, off }` instance, e.g. for tests.
+`createFlashingPageTitle()` returns a fresh `{ on, off }` instance, e.g. for tests.
 
 ### Without a bundler
 
 ```html
 <script type="module">
-  import { pageTitleNotification } from "https://esm.sh/flashing-page-title@3";
+  import { flashingPageTitle } from "https://esm.sh/flashing-page-title@3";
 
-  pageTitleNotification.on("New Message!");
+  flashingPageTitle.on("New Message!");
 </script>
 ```
+
+## Renamed exports (3.2)
+
+3.2.0 renamed the exports to match the package name. The old names still work but are deprecated and will be removed in 4.0:
+
+| Before 3.2 | 3.2+ |
+|---|---|
+| `pageTitleNotification` | `flashingPageTitle` |
+| `createPageTitleNotification()` | `createFlashingPageTitle()` |
+| `PageTitleNotification` (type) | `FlashingPageTitle` |
 
 ## Migrating from 2.x
 
 3.0.0 is an ES module only and no longer sets `window.pageTitleNotification`.
 
-- Replace the global with `import { pageTitleNotification } from "flashing-page-title"`.
+- Replace the global with `import { flashingPageTitle } from "flashing-page-title"`.
 - If you load the script from a CDN without a version (e.g. `unpkg.com/flashing-page-title-notification/dist/index.js`), either pin it to `@2` or switch to the `<script type="module">` example above.
 - Internet Explorer is no longer supported (the build targets ES2017).
 

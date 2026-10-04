@@ -1,4 +1,4 @@
-export interface PageTitleNotification {
+export interface FlashingPageTitle {
   on: (notificationText: string, intervalSpeed?: number) => void;
   off: () => void;
 }
@@ -8,7 +8,7 @@ interface Config {
   interval: number | null;
 }
 
-export const createPageTitleNotification = (): PageTitleNotification => {
+export const createFlashingPageTitle = (): FlashingPageTitle => {
   const config: Config = {
     currentTitle: null,
     interval: null,
@@ -41,4 +41,13 @@ export const createPageTitleNotification = (): PageTitleNotification => {
   };
 };
 
-export const pageTitleNotification = createPageTitleNotification();
+export const flashingPageTitle = createFlashingPageTitle();
+
+/** @deprecated Renamed to `FlashingPageTitle`; this alias will be removed in 4.0. */
+export type PageTitleNotification = FlashingPageTitle;
+
+/** @deprecated Renamed to `createFlashingPageTitle`; this alias will be removed in 4.0. */
+export const createPageTitleNotification = createFlashingPageTitle;
+
+/** @deprecated Renamed to `flashingPageTitle`; this alias will be removed in 4.0. */
+export const pageTitleNotification = flashingPageTitle;
