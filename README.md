@@ -28,10 +28,6 @@ flashingPageTitle.on("New Message!", 1000);
 flashingPageTitle.off();
 ```
 
-`on(notificationText, intervalSpeed?)` flashes the page title between `notificationText` and the original title every `intervalSpeed` milliseconds (default `1000`). Calling `on()` while already flashing does nothing. `off()` stops flashing and restores the original title.
-
-`createFlashingPageTitle()` returns a fresh `{ on, off }` instance, e.g. for tests.
-
 ### Without a bundler
 
 ```html
@@ -41,6 +37,16 @@ flashingPageTitle.off();
   flashingPageTitle.on("New Message!");
 </script>
 ```
+
+## API
+
+**`flashingPageTitle`**: the ready-to-use flasher. Most apps only need this.
+
+**`flashingPageTitle.on(text, interval?)`**: starts flashing the tab title between `text` and the page's current title, swapping every `interval` milliseconds (default `1000`). If it's already flashing, the call is ignored, so call `off()` first to change the text.
+
+**`flashingPageTitle.off()`**: stops flashing and puts the original title back. Safe to call when nothing is flashing.
+
+**`createFlashingPageTitle()`**: creates a separate flasher with the same `on()` / `off()`. You only need this when independent parts of your app might each flash the title, or to keep tests isolated: each one stops without affecting the others.
 
 ## Renamed exports (3.2)
 

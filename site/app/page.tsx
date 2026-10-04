@@ -132,16 +132,20 @@ function Section({ id, title, children }: { id: string; title: string; children:
 
 const api = [
   {
-    signature: 'on(notificationText: string, intervalSpeed = 1000)',
-    description: 'Starts flashing the page title between notificationText and the original title every intervalSpeed milliseconds. Does nothing if already flashing.',
+    signature: 'flashingPageTitle',
+    description: 'The ready-to-use flasher. Most apps only need this.',
   },
   {
-    signature: 'off()',
-    description: 'Stops flashing and restores the original title. Does nothing if not flashing.',
+    signature: 'flashingPageTitle.on(text, interval?)',
+    description: 'Starts flashing the tab title between text and the page\'s current title, swapping every interval milliseconds (default 1000). If it\'s already flashing, the call is ignored, so call off() first to change the text.',
+  },
+  {
+    signature: 'flashingPageTitle.off()',
+    description: 'Stops flashing and puts the original title back. Safe to call when nothing is flashing.',
   },
   {
     signature: 'createFlashingPageTitle()',
-    description: 'Returns a fresh { on, off } instance with its own state, e.g. one per component or test. flashingPageTitle is a shared instance.',
+    description: 'Creates a separate flasher with the same on() / off(). You only need this when independent parts of your app might each flash the title, or to keep tests isolated: each one stops without affecting the others.',
   },
 ];
 
