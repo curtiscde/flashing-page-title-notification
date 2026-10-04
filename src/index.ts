@@ -1,15 +1,20 @@
+export interface PageTitleNotification {
+  on: (notificationText: string, intervalSpeed?: number) => void;
+  off: () => void;
+}
+
 interface Config {
   currentTitle: string | null;
   interval: number | null;
 }
 
-const initPageTitleNotification = () => {
+export const createPageTitleNotification = (): PageTitleNotification => {
   const config: Config = {
     currentTitle: null,
     interval: null,
   };
 
-  const on = (notificationText: string, intervalSpeed: number) => {
+  const on = (notificationText: string, intervalSpeed?: number) => {
     if (!config.interval) {
       config.currentTitle = document.title;
       config.interval = window.setInterval(() => {
@@ -34,9 +39,4 @@ const initPageTitleNotification = () => {
   };
 };
 
-const init = () => {
-  // @ts-ignore
-  window.pageTitleNotification = initPageTitleNotification();
-};
-
-init();
+export const pageTitleNotification = createPageTitleNotification();

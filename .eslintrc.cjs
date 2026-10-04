@@ -1,4 +1,5 @@
 module.exports = {
+  ignorePatterns: ['dist', 'demo-publish'],
   extends: [
     "airbnb",
     "airbnb-typescript",

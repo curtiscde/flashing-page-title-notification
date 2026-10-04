@@ -1,9 +1,22 @@
 {
   "name": "flashing-page-title-notification",
-  "version": "2.5.1",
+  "version": "3.0.0",
   "description": "A javascript plugin which allows easy use of creating a flashing page title for notification purposes.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
+    "prepublishOnly": "npm run build",
     "build-demo": "./bin/buildDemo.sh",
     "lint": "eslint --ext .ts,.tsx ."
   },
