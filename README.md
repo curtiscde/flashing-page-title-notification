@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/flashing-page-title)](https://www.npmjs.com/package/flashing-page-title)
 [![CI](https://github.com/curtiscde/flashing-page-title/actions/workflows/ci.yml/badge.svg)](https://github.com/curtiscde/flashing-page-title/actions/workflows/ci.yml)
 [![minzipped size](https://img.shields.io/bundlejs/size/flashing-page-title)](https://bundlejs.com/?q=flashing-page-title)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ea404321-93fd-4514-bba4-8a4965a7244d/deploy-status)](https://app.netlify.com/sites/flashing-page-title/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ea404321-93fd-4514-bba4-8a4965a7244d/deploy-status)](https://app.netlify.com/projects/flashing-page-title/deploys)
 
 Flash the browser tab's page title to draw the user's attention back, e.g. for new messages.
 
