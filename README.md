@@ -1,32 +1,27 @@
-# Flashing Page Title Notification JS
+# flashing-page-title
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ea404321-93fd-4514-bba4-8a4965a7244d/deploy-status)](https://app.netlify.com/sites/flashing-page-title-notification/deploys)
+[![npm](https://img.shields.io/npm/v/flashing-page-title)](https://www.npmjs.com/package/flashing-page-title)
+[![CI](https://github.com/curtiscde/flashing-page-title/actions/workflows/ci.yml/badge.svg)](https://github.com/curtiscde/flashing-page-title/actions/workflows/ci.yml)
+[![minzipped size](https://img.shields.io/bundlephobia/minzip/flashing-page-title)](https://bundlephobia.com/package/flashing-page-title)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ea404321-93fd-4514-bba4-8a4965a7244d/deploy-status)](https://app.netlify.com/sites/flashing-page-title/deploys)
 
-A javascript plugin which allows easy use of creating a flashing page title for notification purposes.
+Flash the browser tab's page title to draw the user's attention back, e.g. for new messages.
 
-[![enter image description here][1]][1]
+> Previously published as `flashing-page-title-notification`. Same code, new name: swap the package name in your `package.json` and imports.
 
-
-  [1]: https://i.stack.imgur.com/e2O3j.gif
-
-## Demo
-
-https://flashing-page-title-notification.netlify.com
-
-## Blog Article
-
-https://www.curtiscode.dev/post/js/create-a-flashing-tab-notification-page-title
+- **Demo:** https://flashing-page-title.curtiscode.dev
+- **Blog article:** https://www.curtiscode.dev/post/create-a-flashing-tab-notification-page-title
 
 ## Install
 
 ```
-npm install flashing-page-title-notification
+npm install flashing-page-title
 ```
 
 ## Example
 
 ```ts
-import { pageTitleNotification } from "flashing-page-title-notification";
+import { pageTitleNotification } from "flashing-page-title";
 
 pageTitleNotification.on("New Message!", 1000);
 
@@ -41,7 +36,7 @@ pageTitleNotification.off();
 
 ```html
 <script type="module">
-  import { pageTitleNotification } from "https://esm.sh/flashing-page-title-notification@3";
+  import { pageTitleNotification } from "https://esm.sh/flashing-page-title@3";
 
   pageTitleNotification.on("New Message!");
 </script>
@@ -51,14 +46,15 @@ pageTitleNotification.off();
 
 3.0.0 is an ES module only and no longer sets `window.pageTitleNotification`.
 
-- Replace the global with `import { pageTitleNotification } from "flashing-page-title-notification"`.
+- Replace the global with `import { pageTitleNotification } from "flashing-page-title"`.
 - If you load the script from a CDN without a version (e.g. `unpkg.com/flashing-page-title-notification/dist/index.js`), either pin it to `@2` or switch to the `<script type="module">` example above.
 - Internet Explorer is no longer supported (the build targets ES2017).
 
 ## Develop
 
 ```
-npm run build       # compile to /dist
-npm test            # run tests
-npm run build-demo  # build the demo to /demo-publish
+npm run build          # compile to /dist
+npm test               # run tests
+npm run check-package  # lint the packed package with publint and attw
+npm run build-demo     # build the demo to /demo-publish
 ```

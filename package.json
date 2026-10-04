@@ -1,7 +1,7 @@
 {
-  "name": "flashing-page-title-notification",
-  "version": "3.0.0",
-  "description": "A javascript plugin which allows easy use of creating a flashing page title for notification purposes.",
+  "name": "flashing-page-title",
+  "version": "3.1.0",
+  "description": "Flash the browser tab's page title to draw the user's attention back, e.g. for new messages.",
   "type": "module",
   "exports": {
     ".": {
@@ -20,19 +20,21 @@
     "build-demo": "./bin/buildDemo.sh",
     "lint": "eslint .",
     "test": "vitest run",
-    "typecheck": "tsc -p tsconfig.json"
+    "typecheck": "tsc -p tsconfig.json",
+    "check-package": "publint && attw --pack . --profile esm-only"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/curtiscde/Flashing-Page-Title-Notification.git"
+    "url": "git+https://github.com/curtiscde/flashing-page-title.git"
   },
   "author": "Curtis Timson",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/curtiscde/Flashing-Page-Title-Notification/issues"
+    "url": "https://github.com/curtiscde/flashing-page-title/issues"
   },
-  "homepage": "https://github.com/curtiscde/Flashing-Page-Title-Notification#readme",
+  "homepage": "https://flashing-page-title.curtiscode.dev",
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
     "@eslint/js": "^9.39.5",
     "@stylistic/eslint-plugin": "^5.10.0",
     "esbuild": "^0.28.2",
@@ -40,8 +42,19 @@
     "eslint-plugin-import-x": "^4.17.1",
     "globals": "^17.13.0",
     "jsdom": "^29.1.1",
+    "publint": "^0.3.25",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.71.0",
     "vitest": "^5.0.3"
-  }
+  },
+  "keywords": [
+    "page title",
+    "document title",
+    "flashing",
+    "blinking",
+    "tab",
+    "notification",
+    "alert",
+    "browser"
+  ]
 }
