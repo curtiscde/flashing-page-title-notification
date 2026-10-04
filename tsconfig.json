@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ES2017",
     "module": "ES2022",
+    "moduleResolution": "bundler",
     "lib": ["ES2017", "DOM"],
     "noEmit": true,
     "strict": true,
