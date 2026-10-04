@@ -36,7 +36,7 @@
   "homepage": "https://flashing-page-title.curtiscode.dev",
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.5",
-    "@eslint/js": "^9.39.5",
+    "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.10.0",
     "esbuild": "^0.28.2",
     "eslint": "^10.11.0",
