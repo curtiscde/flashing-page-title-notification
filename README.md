@@ -58,3 +58,7 @@ npm test               # run tests
 npm run check-package  # lint the packed package with publint and attw
 npm run build-demo     # build the demo to /demo-publish
 ```
+
+## Releasing
+
+Bump `version` in `package.json` in a PR. When it merges to `main`, the [Publish workflow](.github/workflows/publish.yml) publishes that version to npm (with provenance, via Trusted Publishing), tags `vX.Y.Z` and creates a GitHub Release. Merges that don't change the version publish nothing.
