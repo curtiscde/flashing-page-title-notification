@@ -1,4 +1,5 @@
 module.exports = {
+  ignorePatterns: ['dist', 'demo-publish'],
   extends: [
     "airbnb",
     "airbnb-typescript",
@@ -11,5 +12,8 @@ module.exports = {
   },
   rules: {
     'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': ['error', {
+      devDependencies: ['**/*.test.ts', '*.config.ts', 'Demo/**'],
+    }],
   },
 }
