@@ -72,4 +72,15 @@ npm run build:site     # static export of the demo site to /site/out
 
 ## Releasing
 
-Bump `version` in `package.json` in a PR. When it merges to `main`, the [Publish workflow](.github/workflows/publish.yml) publishes that version to npm (with provenance, via Trusted Publishing), tags `vX.Y.Z` and creates a GitHub Release. Merges that don't change the version publish nothing.
+Releases are automatic. Don't bump `version` by hand.
+
+PRs are squash-merged with their title as the commit message, so **PR titles must be [conventional commits](https://www.conventionalcommits.org/)** (a check enforces this). On every merge to `main`, the [Publish workflow](.github/workflows/publish.yml) runs [semantic-release](https://semantic-release.gitbook.io/), which picks the next version from the titles merged since the last release:
+
+| PR title | Release |
+|---|---|
+| `fix: …` | patch |
+| `feat: …` | minor |
+| `feat!: …` or a `BREAKING CHANGE:` footer | major |
+| `chore:`, `docs:`, `ci:`, `test:`, `refactor:`, `build:`, `chore(deps): …` | none |
+
+When there's a release, it publishes to npm (Trusted Publishing, with provenance), commits the new version and `CHANGELOG.md` back to `main`, tags `vX.Y.Z` and creates a GitHub Release. Every dependency is a dev dependency, so Dependabot PRs use `chore(deps):` and never publish.

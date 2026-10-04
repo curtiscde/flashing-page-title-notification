@@ -1,8 +1,15 @@
 name: Publish
 
-# Publishes to npm when the version in package.json isn't on npm yet,
-# then tags vX.Y.Z and creates a GitHub Release. Bump the version in a PR
-# to release; merges that don't change it publish nothing.
+# semantic-release reads the conventional commits since the last tag:
+# feat → minor, fix → patch, BREAKING CHANGE / feat! → major, anything else
+# → no release. On a release it publishes to npm (Trusted Publishing, with
+# provenance), commits the version + CHANGELOG back to main, tags vX.Y.Z and
+# creates a GitHub Release. Config: .releaserc.json
+#
+# semantic-release runs via npx, pinned here rather than in devDependencies:
+# its bundled npm and dependency tree carry audit findings that would
+# otherwise land in our lockfile. Keep this filename: npm's Trusted
+# Publisher is registered against publish.yml.
 
 on:
   push:
@@ -13,52 +20,42 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  publish:
+  release:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write # tag + GitHub Release
+      contents: write # release commit, tag, GitHub Release
+      issues: write # @semantic-release/github
+      pull-requests: write # @semantic-release/github
       id-token: write # npm Trusted Publishing (OIDC) and provenance
 
     steps:
     - uses: actions/checkout@v7
+      with:
+        fetch-depth: 0 # semantic-release needs the full history and tags
 
     - uses: actions/setup-node@v7
       with:
         node-version: 24.x
-        registry-url: https://registry.npmjs.org
         cache: 'npm'
         cache-dependency-path: package-lock.json
 
-    - name: Check whether this version is already published
-      id: version
-      run: |
-        name=$(node -p "require('./package.json').name")
-        version=$(node -p "require('./package.json').version")
-        echo "version=$version" >> "$GITHUB_OUTPUT"
-        if npm view "$name@$version" version >/dev/null 2>&1; then
-          echo "$name@$version is already on npm, skipping"
-          echo "publish=false" >> "$GITHUB_OUTPUT"
-        else
-          echo "publish=true" >> "$GITHUB_OUTPUT"
-        fi
+    - run: npm ci
 
-    - if: steps.version.outputs.publish == 'true'
-      run: npm ci
-
-    - if: steps.version.outputs.publish == 'true'
-      run: |
+    - run: |
         npm run lint
         npm run typecheck
         npm test
         npm run build
         npm run check-package
 
-    - if: steps.version.outputs.publish == 'true'
-      run: npm publish --provenance --access public
-
-    - if: steps.version.outputs.publish == 'true'
-      name: Tag and create GitHub Release
+    - name: Release
       env:
-        GH_TOKEN: ${{ github.token }}
-      run: gh release create "v${{ steps.version.outputs.version }}" --target "$GITHUB_SHA" --generate-notes
+        GITHUB_TOKEN: ${{ github.token }}
+      run: >-
+        npx --yes
+        -p semantic-release@25.0.9
+        -p @semantic-release/changelog@7.0.0
+        -p @semantic-release/git@11.0.1
+        -p conventional-changelog-conventionalcommits@10.4.0
+        semantic-release
