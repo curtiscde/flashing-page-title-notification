@@ -1,3 +1,6 @@
 [build]
-  publish = "demo-publish"
-  command = "npm run build-demo"
+  command = "npm run build:site"
+  publish = "site/out"
+
+[build.environment]
+  NODE_VERSION = "24"

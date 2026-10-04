@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/flashing-page-title)](https://www.npmjs.com/package/flashing-page-title)
 [![CI](https://github.com/curtiscde/flashing-page-title/actions/workflows/ci.yml/badge.svg)](https://github.com/curtiscde/flashing-page-title/actions/workflows/ci.yml)
-[![minzipped size](https://img.shields.io/bundlephobia/minzip/flashing-page-title)](https://bundlephobia.com/package/flashing-page-title)
+[![minzipped size](https://img.shields.io/bundlejs/size/flashing-page-title)](https://bundlejs.com/?q=flashing-page-title)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ea404321-93fd-4514-bba4-8a4965a7244d/deploy-status)](https://app.netlify.com/sites/flashing-page-title/deploys)
 
 Flash the browser tab's page title to draw the user's attention back, e.g. for new messages.
@@ -56,7 +56,8 @@ pageTitleNotification.off();
 npm run build          # compile to /dist
 npm test               # run tests
 npm run check-package  # lint the packed package with publint and attw
-npm run build-demo     # build the demo to /demo-publish
+npm run dev:site       # run the demo site (Next.js, in /site) locally
+npm run build:site     # static export of the demo site to /site/out
 ```
 
 ## Releasing

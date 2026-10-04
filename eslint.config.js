@@ -5,7 +5,8 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['dist', 'demo-publish'] },
+  // site/ has its own config that extends this one
+  { ignores: ['dist', 'site'] },
   js.configs.recommended,
   tseslint.configs.recommendedTypeChecked,
   tseslint.configs.stylisticTypeChecked,
@@ -29,7 +30,7 @@ export default tseslint.config(
     plugins: { 'import-x': importX },
     rules: {
       'import-x/no-extraneous-dependencies': ['error', {
-        devDependencies: ['**/*.test.ts', '*.config.{ts,js}', 'Demo/**'],
+        devDependencies: ['**/*.test.ts', '**/*.config.{ts,js,mjs}'],
       }],
     },
   },
