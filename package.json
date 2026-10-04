@@ -1,6 +1,6 @@
 {
   "name": "flashing-page-title",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "Flash the browser tab's page title to draw the user's attention back, e.g. for new messages.",
   "type": "module",
   "exports": {
