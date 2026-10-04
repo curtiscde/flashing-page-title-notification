@@ -39,7 +39,16 @@ export default function Home() {
             {' '}
             <code>flashing-page-title-notification</code>
             {' '}
-            in 3.1 with no API changes.
+            in 3.1, and its exports in 3.2 (
+            <code>pageTitleNotification</code>
+            {' → '}
+            <code>flashingPageTitle</code>
+            ,
+            {' '}
+            <code>createPageTitleNotification</code>
+            {' → '}
+            <code>createFlashingPageTitle</code>
+            ). The old names still work until 4.0.
             Internet Explorer is no longer supported.
           </p>
           <CodeBlock snippet={migrationSnippet} />
@@ -131,8 +140,8 @@ const api = [
     description: 'Stops flashing and restores the original title. Does nothing if not flashing.',
   },
   {
-    signature: 'createPageTitleNotification()',
-    description: 'Returns a fresh { on, off } instance with its own state, e.g. one per component or test. pageTitleNotification is a shared instance.',
+    signature: 'createFlashingPageTitle()',
+    description: 'Returns a fresh { on, off } instance with its own state, e.g. one per component or test. flashingPageTitle is a shared instance.',
   },
 ];
 
