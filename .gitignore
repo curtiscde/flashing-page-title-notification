@@ -1,3 +1,6 @@
 node_modules
-demo-publish
 dist
+site/.next
+site/out
+site/next-env.d.ts
+*.tsbuildinfo

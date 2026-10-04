@@ -27,3 +27,5 @@ jobs:
     - run: npm test
     - run: npm run build
     - run: npm run check-package
+    - run: npm run lint -w site
+    - run: npm run build -w site

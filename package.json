@@ -17,11 +17,12 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "prepublishOnly": "npm run build",
-    "build-demo": "./bin/buildDemo.sh",
     "lint": "eslint .",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json",
-    "check-package": "publint && attw --pack . --profile esm-only"
+    "check-package": "publint && attw --pack . --profile esm-only",
+    "build:site": "npm run build && npm run build -w site",
+    "dev:site": "npm run build && npm run dev -w site"
   },
   "repository": {
     "type": "git",
@@ -56,5 +57,8 @@
     "notification",
     "alert",
     "browser"
+  ],
+  "workspaces": [
+    "site"
   ]
 }
