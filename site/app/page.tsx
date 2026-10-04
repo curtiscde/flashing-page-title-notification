@@ -159,7 +159,7 @@ function Footer() {
           </div>
           <div>
             <div className="text-sm text-base-content/60">Created by</div>
-            <div className="text-xl font-bold group-hover:underline">Curtis Timson</div>
+            <div className="text-xl font-bold group-hover:underline">Curtis Lane</div>
             <div className="flex items-center gap-1 text-sm text-base-content/60">
               curtiscode.dev
               <ExternalLink className="size-3" />
